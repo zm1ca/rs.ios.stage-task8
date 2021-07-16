@@ -55,7 +55,7 @@
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Open Timer"/>
                                 <connections>
-                                    <segue destination="3D2-Uf-FeV" kind="presentation" id="3EF-m6-S8t"/>
+                                    <action selector="openTimerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Kk-Ke-Piw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-go-6Nn" customClass="RSButton">
@@ -363,6 +363,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="86O-jC-64k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L2f-B4-4Ef"/>
@@ -393,14 +396,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOl-iI-bTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="905"/>
+            <point key="canvasLocation" x="568.79999999999995" y="904.49775112443785"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer-->
         <scene sceneID="voA-TZ-nqf">
             <objects>
-                <viewController id="3D2-Uf-FeV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timer" id="3D2-Uf-FeV" customClass="Timer" customModule="rs_ios_stage_task8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCo-1r-mZD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-VP-8cy" customClass="RSButton">
@@ -415,22 +418,22 @@
                                 <state key="normal" title="Save"/>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="73x-iQ-1Ed">
-                                <rect key="frame" x="76" y="112" width="223" height="156.5"/>
+                                <rect key="frame" x="76" y="112" width="223" height="166.5"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOL-XE-3AW">
-                                <rect key="frame" x="338.5" y="179" width="10.5" height="22"/>
+                                <rect key="frame" x="338.5" y="184" width="10.5" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-pw-lV8">
-                                <rect key="frame" x="26" y="179" width="6.5" height="22"/>
+                                <rect key="frame" x="26" y="184" width="6.5" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2.4 s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBd-V5-lE5">
-                                <rect key="frame" x="170" y="312.5" width="40" height="22"/>
+                                <rect key="frame" x="170" y="322.5" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="AjG-dx-wwW"/>
                                     <constraint firstAttribute="width" constant="40" id="MZ3-D5-nnU"/>

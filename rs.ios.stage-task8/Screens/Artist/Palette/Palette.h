@@ -9,9 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol PaletteDelegate <NSObject>
+- (void)paletteDidPick:(NSMutableOrderedSet<UIColor *>*)colors;
+@end
+
 @interface Palette : UIViewController
 
 @property(nonatomic, copy) NSMutableOrderedSet<UIColor *>* pickedColors;
+@property(nonatomic, copy) NSTimer* bgTimer;
+@property(weak) id<PaletteDelegate> delegate;
 
 @end
 

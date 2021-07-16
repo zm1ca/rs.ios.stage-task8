@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4013516B26A18C9E00EFB4A1 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013516A26A18C9E00EFB4A1 /* Timer.swift */; };
+		4013517026A1A51300EFB4A1 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4013516F26A1A51300EFB4A1 /* NSMutableArray+Shuffle.m */; };
 		4020488126A0C49A00718C57 /* ColorHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020488026A0C49A00718C57 /* ColorHolderView.m */; };
 		4036945326A06181002254C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4036945226A06181002254C7 /* AppDelegate.m */; };
 		4036945926A06181002254C7 /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4036945826A06181002254C7 /* ArtistViewController.m */; };
@@ -24,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4013516A26A18C9E00EFB4A1 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		4013516C26A18CAA00EFB4A1 /* rs_ios_stage_task8-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rs_ios_stage_task8-Swift.h"; sourceTree = "<group>"; };
+		4013516E26A1A51300EFB4A1 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		4013516F26A1A51300EFB4A1 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
 		4020487F26A0C49A00718C57 /* ColorHolderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorHolderView.h; sourceTree = "<group>"; };
 		4020488026A0C49A00718C57 /* ColorHolderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorHolderView.m; sourceTree = "<group>"; };
 		4036944E26A06181002254C7 /* rs.ios.stage-task8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios.stage-task8.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4013516126A186E300EFB4A1 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				4013516A26A18C9E00EFB4A1 /* Timer.swift */,
+				4013516C26A18CAA00EFB4A1 /* rs_ios_stage_task8-Swift.h */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		4013516D26A1A4F800EFB4A1 /* Cathegories */ = {
+			isa = PBXGroup;
+			children = (
+				4013516E26A1A51300EFB4A1 /* NSMutableArray+Shuffle.h */,
+				4013516F26A1A51300EFB4A1 /* NSMutableArray+Shuffle.m */,
+			);
+			path = Cathegories;
+			sourceTree = "<group>";
+		};
 		4020487E26A0C48400718C57 /* ColorHolderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +113,7 @@
 		4036945026A06181002254C7 /* rs.ios.stage-task8 */ = {
 			isa = PBXGroup;
 			children = (
+				4013516D26A1A4F800EFB4A1 /* Cathegories */,
 				4036945A26A06181002254C7 /* Main.storyboard */,
 				4036946B26A0642B002254C7 /* Screens */,
 				409E2F2426A07B2300F792D5 /* Custom Views */,
@@ -123,6 +148,7 @@
 		4036946C26A06447002254C7 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
+				4013516126A186E300EFB4A1 /* Timer */,
 				409E2F2826A0831700F792D5 /* Palette */,
 				4036945726A06181002254C7 /* ArtistViewController.h */,
 				4036945826A06181002254C7 /* ArtistViewController.m */,
@@ -270,7 +296,9 @@
 				4036947526A06B0D002254C7 /* RSButton.m in Sources */,
 				4036945926A06181002254C7 /* ArtistViewController.m in Sources */,
 				4036945326A06181002254C7 /* AppDelegate.m in Sources */,
+				4013516B26A18C9E00EFB4A1 /* Timer.swift in Sources */,
 				409E2F2326A0788600F792D5 /* CanvasView.m in Sources */,
+				4013517026A1A51300EFB4A1 /* NSMutableArray+Shuffle.m in Sources */,
 				4020488126A0C49A00718C57 /* ColorHolderView.m in Sources */,
 				4036946426A06184002254C7 /* main.m in Sources */,
 				409E2F2D26A0833C00F792D5 /* Palette.m in Sources */,
@@ -420,6 +448,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3Y322LSDU5;
 				INFOPLIST_FILE = "rs.ios.stage-task8/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -429,7 +458,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zm1caps.rs-ios-stage-task8";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Screens/Drawings/rs.ios.stage-task8-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Screens/Artist/Timer/rs_ios_stage_task8-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -443,6 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3Y322LSDU5;
 				INFOPLIST_FILE = "rs.ios.stage-task8/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -452,7 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zm1caps.rs-ios-stage-task8";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Screens/Drawings/rs.ios.stage-task8-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Screens/Artist/Timer/rs_ios_stage_task8-Swift.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

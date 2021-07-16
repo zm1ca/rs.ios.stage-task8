@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Palette.h"
 
-@interface ArtistViewController : UIViewController <UIViewControllerTransitioningDelegate>
+@interface ArtistViewController : UIViewController <UIViewControllerTransitioningDelegate, PaletteDelegate>
 
+@property(nonatomic, copy) NSOrderedSet<UIColor *>* pickedColors;
 
 @end
 
