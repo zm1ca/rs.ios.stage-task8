@@ -7,15 +7,24 @@
 
 #import "ArtistViewController.h"
 #import "Palette.h"
-#import "NSMutableArray+Shuffle.h"
+#import "RSButton.h"
 #import "CanvasView.h"
+#import "CanvasView+Head.h"
+#import "NSMutableArray+Shuffle.h"
 #import "UIView+AsImage.h"
 #import "rs_ios_stage_task8-Swift.h"
 
 @interface ArtistViewController ()
 
-@property (weak, nonatomic) IBOutlet CanvasView *canvas;
+@property (weak, nonatomic) IBOutlet RSButton *openPaletteButton;
+@property (weak, nonatomic) IBOutlet RSButton *drawButton;
+@property (weak, nonatomic) IBOutlet RSButton *openTimerButton;
+@property (weak, nonatomic) IBOutlet RSButton *shareButton;
 
+@property (weak, nonatomic) IBOutlet CanvasView *canvas;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *drawingsBarButton;
+
+- (IBAction)drawTapped:(id)sender;
 - (IBAction)openPaletteTapped:(UIButton *)sender;
 - (IBAction)openTimerTapped:(UIButton *)sender;
 - (IBAction)shareButtonTapped:(id)sender;
@@ -29,11 +38,24 @@
     _pickedColors = [[NSOrderedSet<UIColor *> alloc] init];
     _timerValue   = 1;
     _drawing      = @"Head";
+//    [_shareButton setDisabled];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self generateColorsForLines];
+    [self crutchForBarButtonFont];
+}
+
+-(void)crutchForBarButtonFont {
+    [self.drawingsBarButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+        [UIFont fontWithName:@"Montserrat-Regular" size:17.0], NSFontAttributeName,
+                                                    nil]
+                                          forState:UIControlStateNormal];
+    [self.drawingsBarButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+        [UIFont fontWithName:@"Montserrat-Regular" size:17.0], NSFontAttributeName,
+                                                    nil]
+                                          forState:UIControlStateHighlighted];
 }
 
 - (IBAction)shareButtonTapped:(id)sender {
@@ -67,6 +89,21 @@
     [palette didMoveToParentViewController:self];
 }
 
+- (IBAction)drawTapped:(id)sender {
+    NSArray<UIColor *>* colors = [self generateColorsForLines];
+    NSLog(@"%@", colors);
+    [_canvas drawHeadWithColor1:colors[0] color2:colors[1] color3:colors[2]];
+}
+
+- (NSMutableArray<UIColor *>*)generateColorsForLines {
+    NSMutableArray<UIColor *>* lineColors = [[NSMutableArray alloc] initWithArray:[_pickedColors array]];
+    while (lineColors.count < 3) {
+        [lineColors addObject:[UIColor blackColor]];
+    }
+    [lineColors shuffle];
+    return lineColors;
+}
+
 - (void)configureVCAsChild:(UIViewController *)childVC {
     childVC.view.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height);
     childVC.view.backgroundColor     = [UIColor whiteColor];
@@ -81,18 +118,6 @@
 
 - (void)paletteDidPick:(nonnull NSMutableOrderedSet<UIColor *> *)colors {
     _pickedColors = colors;
-}
-
-- (NSOrderedSet<UIColor *>*)generateColorsForLines {
-    
-    NSMutableArray<UIColor *>* lineColors = [[NSMutableArray alloc] initWithArray:[_pickedColors array]];
-    int i = 0;
-    while (_pickedColors.count + i < 3) {
-        [lineColors addObject:[UIColor blackColor]];
-        ++i;
-    }
-    [lineColors shuffle];
-    return [[NSOrderedSet alloc] initWithArray:lineColors];
 }
 
 - (void)timerDidPickWithValue:(float)value {

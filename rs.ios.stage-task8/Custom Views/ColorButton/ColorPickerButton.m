@@ -12,27 +12,34 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    ColorHolderView *smallColorHolder = [[ColorHolderView alloc] initWithFrame:CGRectMake(8, 8, 24, 24)];
+    smallColorHolder.backgroundColor = _color;
+    smallColorHolder.layer.cornerRadius = 6;
+    
+    _colorHolder = smallColorHolder;
+    self.appearingAsDefault = YES;
+    [self addSubview:_colorHolder];
+    
     [self setDefaultAppearance];
 }
 
 - (void)setDefaultAppearance {
-    ColorHolderView *colorHolder = [[ColorHolderView alloc] initWithFrame:CGRectMake(8, 8, 24, 24)];
-    colorHolder.backgroundColor = _color;
-    colorHolder.layer.cornerRadius = 6;
-    
+    [UIView animateWithDuration:0.25 animations:^{
+        _colorHolder.frame = CGRectMake(8, 8, 24, 24);
+        _colorHolder.layer.cornerRadius = 6;
+    }];
+
     self.appearingAsDefault = YES;
-    [self removeAllSubviews];
-    [self addSubview:colorHolder];
 }
 
 - (void)setSelectedAppearance {
-    ColorHolderView *colorHolder = [[ColorHolderView alloc] initWithFrame:CGRectMake(2, 2, 36, 36)];
-    colorHolder.backgroundColor = _color;
-    colorHolder.layer.cornerRadius = 8;
-    
+    [UIView animateWithDuration:0.25 animations:^{
+        _colorHolder.frame = CGRectMake(2, 2, 36, 36);
+        _colorHolder.layer.cornerRadius = 8;
+    }];
+
     self.appearingAsDefault = NO;
-    [self removeAllSubviews];
-    [self addSubview:colorHolder];
 }
 
 - (void)toggleState {

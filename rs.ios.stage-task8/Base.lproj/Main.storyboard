@@ -66,6 +66,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Draw"/>
+                                <connections>
+                                    <action selector="drawTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zF8-ZH-8in"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-Gu-zJG" customClass="RSButton">
                                 <rect key="frame" x="239" y="504" width="95" height="32"/>
@@ -106,6 +109,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="canvas" destination="Gyz-9L-0Lx" id="bI0-3m-hQK"/>
+                        <outlet property="drawButton" destination="Uhg-go-6Nn" id="AM7-0j-cX3"/>
+                        <outlet property="drawingsBarButton" destination="H6J-N0-ePK" id="h71-2Z-otm"/>
+                        <outlet property="openPaletteButton" destination="t9y-EL-Frm" id="TEG-dA-aaB"/>
+                        <outlet property="openTimerButton" destination="iaC-5L-fsM" id="eLz-82-F6f"/>
+                        <outlet property="shareButton" destination="Q5v-Gu-zJG" id="8bJ-BX-XYh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -463,10 +471,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.4 s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBd-V5-lE5">
-                                <rect key="frame" x="162.5" y="182" width="50" height="22"/>
+                                <rect key="frame" x="152.5" y="182" width="70" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="AjG-dx-wwW"/>
-                                    <constraint firstAttribute="width" constant="50" id="MZ3-D5-nnU"/>
+                                    <constraint firstAttribute="width" constant="70" id="MZ3-D5-nnU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>

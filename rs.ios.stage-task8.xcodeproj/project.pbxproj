@@ -21,6 +21,10 @@
 		4036947226A067CF002254C7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4036947026A067CF002254C7 /* Montserrat-Regular.ttf */; };
 		4036947526A06B0D002254C7 /* RSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4036947426A06B0D002254C7 /* RSButton.m */; };
 		4065726F26A1E9EF003879FC /* Drawings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065726E26A1E9EF003879FC /* Drawings.swift */; };
+		4065729D26A20B95003879FC /* CanvasView+Head.m in Sources */ = {isa = PBXBuildFile; fileRef = 4065729C26A20B95003879FC /* CanvasView+Head.m */; };
+		406572A526A20C80003879FC /* CanvasView+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 406572A426A20C80003879FC /* CanvasView+Tree.m */; };
+		406572A826A20C88003879FC /* CanvasView+Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = 406572A726A20C88003879FC /* CanvasView+Planet.m */; };
+		406572AB26A20C8E003879FC /* CanvasView+Landscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 406572AA26A20C8E003879FC /* CanvasView+Landscape.m */; };
 		409E2F2326A0788600F792D5 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E2F2226A0788600F792D5 /* CanvasView.m */; };
 		409E2F2D26A0833C00F792D5 /* Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E2F2C26A0833C00F792D5 /* Palette.m */; };
 		409E2F3526A08CB800F792D5 /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E2F3426A08CB800F792D5 /* ColorPickerButton.m */; };
@@ -50,6 +54,14 @@
 		4036947426A06B0D002254C7 /* RSButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSButton.m; sourceTree = "<group>"; };
 		4065726E26A1E9EF003879FC /* Drawings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawings.swift; sourceTree = "<group>"; };
 		4065729A26A1EBE9003879FC /* rs_ios_stage_task8-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rs_ios_stage_task8-Bridging-Header.h"; sourceTree = "<group>"; };
+		4065729B26A20B95003879FC /* CanvasView+Head.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanvasView+Head.h"; sourceTree = "<group>"; };
+		4065729C26A20B95003879FC /* CanvasView+Head.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CanvasView+Head.m"; sourceTree = "<group>"; };
+		406572A326A20C80003879FC /* CanvasView+Tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanvasView+Tree.h"; sourceTree = "<group>"; };
+		406572A426A20C80003879FC /* CanvasView+Tree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CanvasView+Tree.m"; sourceTree = "<group>"; };
+		406572A626A20C88003879FC /* CanvasView+Planet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanvasView+Planet.h"; sourceTree = "<group>"; };
+		406572A726A20C88003879FC /* CanvasView+Planet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CanvasView+Planet.m"; sourceTree = "<group>"; };
+		406572A926A20C8E003879FC /* CanvasView+Landscape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanvasView+Landscape.h"; sourceTree = "<group>"; };
+		406572AA26A20C8E003879FC /* CanvasView+Landscape.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CanvasView+Landscape.m"; sourceTree = "<group>"; };
 		409E2F2126A0788600F792D5 /* CanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		409E2F2226A0788600F792D5 /* CanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		409E2F2B26A0833C00F792D5 /* Palette.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Palette.h; sourceTree = "<group>"; };
@@ -132,12 +144,12 @@
 		4036945026A06181002254C7 /* rs.ios.stage-task8 */ = {
 			isa = PBXGroup;
 			children = (
-				4065729A26A1EBE9003879FC /* rs_ios_stage_task8-Bridging-Header.h */,
 				4036945A26A06181002254C7 /* Main.storyboard */,
 				4036946B26A0642B002254C7 /* Screens */,
 				409E2F2426A07B2300F792D5 /* Custom Views */,
 				4036946A26A0641E002254C7 /* Application */,
 				4013516D26A1A4F800EFB4A1 /* Cathegories */,
+				4065729A26A1EBE9003879FC /* rs_ios_stage_task8-Bridging-Header.h */,
 				4036945D26A06184002254C7 /* Assets.xcassets */,
 				4036946E26A067BC002254C7 /* Fonts */,
 				4036945F26A06184002254C7 /* LaunchScreen.storyboard */,
@@ -193,6 +205,53 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4065729E26A20B9A003879FC /* Drawings */ = {
+			isa = PBXGroup;
+			children = (
+				406572A226A20C74003879FC /* Landscape */,
+				406572A126A20C6E003879FC /* Planet */,
+				406572A026A20C6A003879FC /* Tree */,
+				4065729F26A20BA7003879FC /* Head */,
+			);
+			path = Drawings;
+			sourceTree = "<group>";
+		};
+		4065729F26A20BA7003879FC /* Head */ = {
+			isa = PBXGroup;
+			children = (
+				4065729B26A20B95003879FC /* CanvasView+Head.h */,
+				4065729C26A20B95003879FC /* CanvasView+Head.m */,
+			);
+			path = Head;
+			sourceTree = "<group>";
+		};
+		406572A026A20C6A003879FC /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				406572A326A20C80003879FC /* CanvasView+Tree.h */,
+				406572A426A20C80003879FC /* CanvasView+Tree.m */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
+		406572A126A20C6E003879FC /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				406572A626A20C88003879FC /* CanvasView+Planet.h */,
+				406572A726A20C88003879FC /* CanvasView+Planet.m */,
+			);
+			path = Planet;
+			sourceTree = "<group>";
+		};
+		406572A226A20C74003879FC /* Landscape */ = {
+			isa = PBXGroup;
+			children = (
+				406572A926A20C8E003879FC /* CanvasView+Landscape.h */,
+				406572AA26A20C8E003879FC /* CanvasView+Landscape.m */,
+			);
+			path = Landscape;
+			sourceTree = "<group>";
+		};
 		409E2F1726A071CA00F792D5 /* RSButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +264,7 @@
 		409E2F1C26A0774A00F792D5 /* CanvasView */ = {
 			isa = PBXGroup;
 			children = (
+				4065729E26A20B9A003879FC /* Drawings */,
 				409E2F2126A0788600F792D5 /* CanvasView.h */,
 				409E2F2226A0788600F792D5 /* CanvasView.m */,
 			);
@@ -317,12 +377,16 @@
 				4065726F26A1E9EF003879FC /* Drawings.swift in Sources */,
 				4036945326A06181002254C7 /* AppDelegate.m in Sources */,
 				4013517826A1C73900EFB4A1 /* Timer.swift in Sources */,
+				4065729D26A20B95003879FC /* CanvasView+Head.m in Sources */,
 				409E2F2326A0788600F792D5 /* CanvasView.m in Sources */,
+				406572A826A20C88003879FC /* CanvasView+Planet.m in Sources */,
 				4013517026A1A51300EFB4A1 /* NSMutableArray+Shuffle.m in Sources */,
 				4013517326A1AC0900EFB4A1 /* UIView+AsImage.m in Sources */,
 				4020488126A0C49A00718C57 /* ColorHolderView.m in Sources */,
 				4036946426A06184002254C7 /* main.m in Sources */,
 				409E2F2D26A0833C00F792D5 /* Palette.m in Sources */,
+				406572A526A20C80003879FC /* CanvasView+Tree.m in Sources */,
+				406572AB26A20C8E003879FC /* CanvasView+Landscape.m in Sources */,
 				409E2F3526A08CB800F792D5 /* ColorPickerButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

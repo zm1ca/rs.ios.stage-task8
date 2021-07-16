@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface ColorPickerButton : RSButton
 
+@property(nonatomic, copy) UIView *colorHolder;
 @property(nonatomic, copy) IBInspectable UIColor* color;
 
 @property BOOL appearingAsDefault;

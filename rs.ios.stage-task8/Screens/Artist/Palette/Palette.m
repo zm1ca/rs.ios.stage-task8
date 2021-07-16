@@ -52,10 +52,15 @@
     }
 
     [self selectNewColor:sender.color];
-    self.view.backgroundColor = sender.color;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.backgroundColor = sender.color;
+    }];
+    
     [_bgTimer invalidate];
     _bgTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        self.view.backgroundColor = [UIColor whiteColor];
+        [UIView animateWithDuration:0.25 animations:^{
+            self.view.backgroundColor = [UIColor whiteColor];
+        }];
     }];
 }
 
