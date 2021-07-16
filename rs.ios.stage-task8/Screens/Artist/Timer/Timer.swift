@@ -13,12 +13,12 @@ import UIKit
 
 @objc public class Timer: UIViewController {
     
-    @objc public var timerValue: NSNumber!
-    
-    @objc public weak var delegate: TimerDelegate!
-    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var stepper: UISlider!
+    
+    @objc public var timerValue: NSNumber!
+    @objc public weak var delegate: TimerDelegate!
+    
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,12 @@ import UIKit
         updateUI()
     }
     
-    @IBAction func stepperValueChanged(_ sender: UISlider) {
-        updateUI()
+    func updateUI() {
+        timerLabel.text = String(format: "%.2f", stepper.value) + " s"
     }
     
-    func updateUI() {
-        timerLabel.text = String(format: "%.1f", stepper.value) + " s"
+    @IBAction func stepperValueChanged(_ sender: UISlider) {
+        updateUI()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {

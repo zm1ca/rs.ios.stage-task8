@@ -50,9 +50,17 @@
         [_pickedColors removeObject:sender.color];
         return;
     }
-    
-    //Select new one
-    [_pickedColors addObject:sender.color];
+
+    [self selectNewColor:sender.color];
+    self.view.backgroundColor = sender.color;
+    [_bgTimer invalidate];
+    _bgTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }];
+}
+
+- (void)selectNewColor:(UIColor*)color {
+    [_pickedColors addObject:color];
      if (_pickedColors.count > 3) {
         for (int index = 0; index < _colorButtons.count; index++) {
             if ([_colorButtons[index].color isEqual:_pickedColors[0]]) {
@@ -61,12 +69,6 @@
         }
         [_pickedColors removeObjectAtIndex:0];
     }
-    
-    self.view.backgroundColor = sender.color;
-    [_bgTimer invalidate];
-    _bgTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        self.view.backgroundColor = [UIColor whiteColor];
-    }];
 }
 
 @end

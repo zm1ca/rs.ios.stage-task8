@@ -115,7 +115,7 @@
         <!--Drawings-->
         <scene sceneID="WOT-zn-wcC">
             <objects>
-                <viewController id="iqX-a0-n5t" customClass="DrawingsVC" sceneMemberID="viewController">
+                <viewController id="iqX-a0-n5t" customClass="Drawings" customModule="rs_ios_stage_task8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nTS-XU-Tqf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,6 +131,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                         <state key="normal" title="Planet"/>
+                                        <connections>
+                                            <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="PoE-op-LXZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw8-Ob-svg" customClass="RSButton">
                                         <rect key="frame" x="0.0" y="55" width="200" height="40"/>
@@ -140,6 +143,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                         <state key="normal" title="Head"/>
+                                        <connections>
+                                            <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="uzb-X2-kV0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-0m-uD8" customClass="RSButton">
                                         <rect key="frame" x="0.0" y="110" width="200" height="40"/>
@@ -149,6 +155,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                         <state key="normal" title="Tree"/>
+                                        <connections>
+                                            <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="KkE-2w-aUN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-2m-g2s" customClass="RSButton">
                                         <rect key="frame" x="0.0" y="165" width="200" height="40"/>
@@ -158,6 +167,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                         <state key="normal" title="Landscape"/>
+                                        <connections>
+                                            <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="Q6R-cT-cFj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -176,10 +188,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Drawings" id="Zko-YP-qnf"/>
                     <connections>
-                        <outletCollection property="patternButtons" destination="XdH-Jr-YcJ" id="zQQ-zw-1dR"/>
-                        <outletCollection property="patternButtons" destination="gw8-Ob-svg" id="Mbz-yL-wu8"/>
-                        <outletCollection property="patternButtons" destination="Rg6-0m-uD8" id="eqz-CZ-hdm"/>
-                        <outletCollection property="patternButtons" destination="K2m-2m-g2s" id="hCb-c0-ymP"/>
+                        <outletCollection property="patternButtons" destination="XdH-Jr-YcJ" collectionClass="NSMutableArray" id="zQQ-zw-1dR"/>
+                        <outletCollection property="patternButtons" destination="gw8-Ob-svg" collectionClass="NSMutableArray" id="Mbz-yL-wu8"/>
+                        <outletCollection property="patternButtons" destination="Rg6-0m-uD8" collectionClass="NSMutableArray" id="eqz-CZ-hdm"/>
+                        <outletCollection property="patternButtons" destination="K2m-2m-g2s" collectionClass="NSMutableArray" id="hCb-c0-ymP"/>
+                        <outletCollection property="patternButtons" destination="gw8-Ob-svg" collectionClass="NSMutableArray" id="ZMm-MB-at5"/>
+                        <outletCollection property="patternButtons" destination="Rg6-0m-uD8" collectionClass="NSMutableArray" id="AcY-CT-QEj"/>
+                        <outletCollection property="patternButtons" destination="K2m-2m-g2s" collectionClass="NSMutableArray" id="jfc-SJ-Z2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdn-mL-Ur0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

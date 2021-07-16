@@ -28,6 +28,7 @@
     [super viewDidLoad];
     _pickedColors = [[NSOrderedSet<UIColor *> alloc] init];
     _timerValue   = 1;
+    _drawing      = @"Head";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -96,6 +97,17 @@
 
 - (void)timerDidPickWithValue:(float)value {
     _timerValue = value;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    Drawings *destVC = (Drawings *)segue.destinationViewController;
+    destVC.delegate = self;
+    destVC.selectedDrawing = _drawing;
+}
+
+- (void)updateDrawingWithDrawing:(NSString * _Nonnull)drawing {
+    _drawing = drawing;
+    //TODO: do stuff
 }
 
 @end
