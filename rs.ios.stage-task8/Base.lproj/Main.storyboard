@@ -1,24 +1,565 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="anC-VO-3dt">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Artist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArtistViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyz-9L-0Lx" customClass="CanvasView">
+                                <rect key="frame" x="38" y="102" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="eGh-xP-vre"/>
+                                    <constraint firstAttribute="height" constant="300" id="yol-PO-4UN"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-EL-Frm" customClass="RSButton">
+                                <rect key="frame" x="20" y="452" width="163" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="5cR-wc-ZAw"/>
+                                    <constraint firstAttribute="width" constant="163" id="8yZ-CC-HOq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Open Palette"/>
+                                <connections>
+                                    <action selector="openPaletteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uc7-rO-nvM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-5L-fsM" customClass="RSButton">
+                                <rect key="frame" x="20" y="504" width="151" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="Wuc-cD-KdP"/>
+                                    <constraint firstAttribute="height" constant="32" id="eI2-uv-SgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Open Timer"/>
+                                <connections>
+                                    <segue destination="3D2-Uf-FeV" kind="presentation" id="3EF-m6-S8t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-go-6Nn" customClass="RSButton">
+                                <rect key="frame" x="243" y="452" width="91" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="QCA-1F-jnp"/>
+                                    <constraint firstAttribute="height" constant="32" id="dzt-Jo-0a0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Draw"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-Gu-zJG" customClass="RSButton">
+                                <rect key="frame" x="239" y="504" width="95" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="1o8-yA-QNf"/>
+                                    <constraint firstAttribute="width" constant="95" id="8G0-m1-rnc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Share"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uhg-go-6Nn" secondAttribute="trailing" constant="41" id="2So-99-fqt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t9y-EL-Frm" secondAttribute="bottom" constant="183" id="4rf-yp-DSl"/>
+                            <constraint firstItem="iaC-5L-fsM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6fC-Ur-v5H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Gyz-9L-0Lx" secondAttribute="bottom" constant="265" id="8BW-gV-amw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gyz-9L-0Lx" secondAttribute="trailing" constant="37" id="EyQ-C2-GEz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q5v-Gu-zJG" secondAttribute="bottom" constant="131" id="Gk6-2m-X7H"/>
+                            <constraint firstItem="t9y-EL-Frm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UbX-e2-3Rb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q5v-Gu-zJG" secondAttribute="trailing" constant="41" id="jVs-Fn-p96"/>
+                            <constraint firstItem="Gyz-9L-0Lx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="kie-pA-jR7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iaC-5L-fsM" secondAttribute="bottom" constant="131" id="mv1-yA-4vL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uhg-go-6Nn" secondAttribute="bottom" constant="183" id="uIO-cz-foy"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Artist" id="f6Z-el-pBU">
+                        <barButtonItem key="rightBarButtonItem" title="Drawings" id="H6J-N0-ePK">
+                            <color key="tintColor" name="Turquoise"/>
+                            <connections>
+                                <segue destination="iqX-a0-n5t" kind="show" id="mEg-vD-1fZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="93.103448275862078"/>
+        </scene>
+        <!--Drawings-->
+        <scene sceneID="WOT-zn-wcC">
+            <objects>
+                <viewController id="iqX-a0-n5t" customClass="DrawingsVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nTS-XU-Tqf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="z8d-sH-ZAa">
+                                <rect key="frame" x="88" y="112" width="200" height="205"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-Jr-YcJ" customClass="RSButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="YdU-Aa-cgj"/>
+                                            <constraint firstAttribute="height" constant="40" id="uYj-zq-fJu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <state key="normal" title="Planet"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw8-Ob-svg" customClass="RSButton">
+                                        <rect key="frame" x="0.0" y="55" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dH7-dd-qoG"/>
+                                            <constraint firstAttribute="width" constant="200" id="lRc-Xe-KUt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <state key="normal" title="Head"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-0m-uD8" customClass="RSButton">
+                                        <rect key="frame" x="0.0" y="110" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="ivw-lc-moI"/>
+                                            <constraint firstAttribute="height" constant="40" id="wYM-cH-91y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <state key="normal" title="Tree"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-2m-g2s" customClass="RSButton">
+                                        <rect key="frame" x="0.0" y="165" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="9Tt-di-SfX"/>
+                                            <constraint firstAttribute="height" constant="40" id="EaA-GK-IKR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <state key="normal" title="Landscape"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Zrf-PJ-4lo"/>
+                                    <constraint firstAttribute="height" constant="205" id="aWj-IG-2by"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zem-93-RQ9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zem-93-RQ9" firstAttribute="bottom" secondItem="z8d-sH-ZAa" secondAttribute="bottom" constant="350" id="0ob-BK-ELV"/>
+                            <constraint firstItem="z8d-sH-ZAa" firstAttribute="leading" secondItem="Zem-93-RQ9" secondAttribute="leading" constant="88" id="fgi-n3-e1K"/>
+                            <constraint firstItem="Zem-93-RQ9" firstAttribute="trailing" secondItem="z8d-sH-ZAa" secondAttribute="trailing" constant="87" id="giD-qL-Xci"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Drawings" id="Zko-YP-qnf"/>
+                    <connections>
+                        <outletCollection property="patternButtons" destination="XdH-Jr-YcJ" id="zQQ-zw-1dR"/>
+                        <outletCollection property="patternButtons" destination="gw8-Ob-svg" id="Mbz-yL-wu8"/>
+                        <outletCollection property="patternButtons" destination="Rg6-0m-uD8" id="eqz-CZ-hdm"/>
+                        <outletCollection property="patternButtons" destination="K2m-2m-g2s" id="hCb-c0-ymP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tdn-mL-Ur0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="94"/>
+        </scene>
+        <!--Palette-->
+        <scene sceneID="UlR-oy-1Yi">
+            <objects>
+                <viewController storyboardIdentifier="Palette" title="Palette" id="zCb-Qd-E0M" customClass="Palette" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hMt-NS-dDH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qr6-eJ-zCa">
+                                <rect key="frame" x="17" y="92" width="340" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wCp-xP-vGP">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-vS-om1" customClass="ColorPickerButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="IZ9-0Y-E5i"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Plp-ZH-nZa"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Red"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="ZcB-3C-wEb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehq-fn-AIc" customClass="ColorPickerButton">
+                                                <rect key="frame" x="60" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Blue"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="AvW-a0-LCw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRx-FX-Q8J" customClass="ColorPickerButton">
+                                                <rect key="frame" x="120" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Green"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="7Tt-8O-d0l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-jh-aoP" customClass="ColorPickerButton">
+                                                <rect key="frame" x="180" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Gray"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="Y3c-we-Cm8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKn-9G-dDy" customClass="ColorPickerButton">
+                                                <rect key="frame" x="240" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Purple"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="XMJ-f3-kej"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me0-6e-CTi" customClass="ColorPickerButton">
+                                                <rect key="frame" x="300" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Orange"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="50q-Oj-pun"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="djm-ew-sQE">
+                                        <rect key="frame" x="0.0" y="60" width="340" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llj-vK-FXU" customClass="ColorPickerButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="U3L-K1-Cqm"/>
+                                                    <constraint firstAttribute="height" constant="40" id="lcn-kq-sgl"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Yellow"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="bEc-8Y-jSR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bir-dP-qfZ" customClass="ColorPickerButton">
+                                                <rect key="frame" x="60" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Teal"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="eUy-J2-i9r"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-XM-4dE" customClass="ColorPickerButton">
+                                                <rect key="frame" x="120" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Pink"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="4K9-11-xJF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-vJ-7GG" customClass="ColorPickerButton">
+                                                <rect key="frame" x="180" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Charcoal"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="qoJ-cN-U6s"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-2c-WbG" customClass="ColorPickerButton">
+                                                <rect key="frame" x="240" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Bog"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="Y95-K8-w6w"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-b6-wSA" customClass="ColorPickerButton">
+                                                <rect key="frame" x="300" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" name="Turquoise"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="Venetian"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="6ay-mu-gW7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bva-d5-nn1" customClass="RSButton">
+                                <rect key="frame" x="250" y="20" width="85" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="EjT-uH-sni"/>
+                                    <constraint firstAttribute="width" constant="85" id="fMz-0H-I4q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L2f-B4-4Ef"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bva-d5-nn1" firstAttribute="top" secondItem="hMt-NS-dDH" secondAttribute="top" constant="20" id="1QB-82-QSI"/>
+                            <constraint firstItem="L2f-B4-4Ef" firstAttribute="trailing" secondItem="Qr6-eJ-zCa" secondAttribute="trailing" constant="18" id="5Qt-Sx-mI3"/>
+                            <constraint firstItem="L2f-B4-4Ef" firstAttribute="trailing" secondItem="Bva-d5-nn1" secondAttribute="trailing" constant="40" id="Pff-8y-PVI"/>
+                            <constraint firstItem="Qr6-eJ-zCa" firstAttribute="leading" secondItem="L2f-B4-4Ef" secondAttribute="leading" constant="17" id="RTd-tJ-G8m"/>
+                            <constraint firstItem="Qr6-eJ-zCa" firstAttribute="top" secondItem="hMt-NS-dDH" secondAttribute="top" constant="92" id="ZKj-8w-rcU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KRk-HI-lxR"/>
+                    <connections>
+                        <outletCollection property="colorButtons" destination="maM-vS-om1" id="ySj-cY-zZ8"/>
+                        <outletCollection property="colorButtons" destination="Ehq-fn-AIc" id="fYn-8A-YBT"/>
+                        <outletCollection property="colorButtons" destination="JRx-FX-Q8J" id="Sce-Fc-Krb"/>
+                        <outletCollection property="colorButtons" destination="FfH-jh-aoP" id="Vdc-nU-ahu"/>
+                        <outletCollection property="colorButtons" destination="sKn-9G-dDy" id="UdK-q3-fpb"/>
+                        <outletCollection property="colorButtons" destination="me0-6e-CTi" id="sCd-VR-JD4"/>
+                        <outletCollection property="colorButtons" destination="llj-vK-FXU" id="agV-qE-zmo"/>
+                        <outletCollection property="colorButtons" destination="bir-dP-qfZ" id="nIH-RO-ReF"/>
+                        <outletCollection property="colorButtons" destination="Yyd-XM-4dE" id="pvF-Qr-po9"/>
+                        <outletCollection property="colorButtons" destination="xbX-vJ-7GG" id="cG3-IX-eR2"/>
+                        <outletCollection property="colorButtons" destination="SvX-2c-WbG" id="CTf-QD-HBO"/>
+                        <outletCollection property="colorButtons" destination="MRU-b6-wSA" id="LIb-Ss-JuS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOl-iI-bTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="905"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="voA-TZ-nqf">
+            <objects>
+                <viewController id="3D2-Uf-FeV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CCo-1r-mZD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-VP-8cy" customClass="RSButton">
+                                <rect key="frame" x="250" y="20" width="85" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="PQQ-Id-MRQ"/>
+                                    <constraint firstAttribute="height" constant="32" id="jix-tR-9BP"/>
+                                    <constraint firstAttribute="width" constant="85" id="ovK-Z1-Tep"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="85" id="rd0-nb-uTz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="73x-iQ-1Ed">
+                                <rect key="frame" x="76" y="112" width="223" height="156.5"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOL-XE-3AW">
+                                <rect key="frame" x="338.5" y="179" width="10.5" height="22"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-pw-lV8">
+                                <rect key="frame" x="26" y="179" width="6.5" height="22"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2.4 s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBd-V5-lE5">
+                                <rect key="frame" x="170" y="312.5" width="40" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="AjG-dx-wwW"/>
+                                    <constraint firstAttribute="width" constant="40" id="MZ3-D5-nnU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qI7-Iz-5Aw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qI7-Iz-5Aw" firstAttribute="trailing" secondItem="aOL-XE-3AW" secondAttribute="trailing" constant="26" id="1V7-us-cdZ"/>
+                            <constraint firstItem="jBd-V5-lE5" firstAttribute="centerY" secondItem="CCo-1r-mZD" secondAttribute="centerY" id="5Vu-GD-vyQ"/>
+                            <constraint firstItem="qI7-Iz-5Aw" firstAttribute="trailing" secondItem="8sT-VP-8cy" secondAttribute="trailing" constant="40" id="6d4-JV-KAW"/>
+                            <constraint firstItem="73x-iQ-1Ed" firstAttribute="top" secondItem="8sT-VP-8cy" secondAttribute="bottom" constant="60" id="Qkg-YJ-vxO"/>
+                            <constraint firstItem="aOL-XE-3AW" firstAttribute="centerY" secondItem="73x-iQ-1Ed" secondAttribute="centerY" id="beI-tf-VIt"/>
+                            <constraint firstItem="o2E-pw-lV8" firstAttribute="centerY" secondItem="73x-iQ-1Ed" secondAttribute="centerY" id="evb-Mi-lB8"/>
+                            <constraint firstItem="jBd-V5-lE5" firstAttribute="top" secondItem="73x-iQ-1Ed" secondAttribute="bottom" constant="45" id="gg4-yp-PYC"/>
+                            <constraint firstItem="8sT-VP-8cy" firstAttribute="top" secondItem="qI7-Iz-5Aw" secondAttribute="top" constant="20" id="gqp-cu-OF5"/>
+                            <constraint firstItem="o2E-pw-lV8" firstAttribute="leading" secondItem="qI7-Iz-5Aw" secondAttribute="leading" constant="26" id="z2r-sY-U4Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rsX-IX-DEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="904"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cI7-tq-lec">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="anC-VO-3dt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dfh-mh-w7r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Turquoise"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="id6-r5-kin"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0y-eq-O51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Ehq-fn-AIc">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="FfH-jh-aoP">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="JRx-FX-Q8J">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="MRU-b6-wSA">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="SvX-2c-WbG">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="Yyd-XM-4dE">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="bir-dP-qfZ">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="llj-vK-FXU">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="maM-vS-om1">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="me0-6e-CTi">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="sKn-9G-dDy">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="xbX-vJ-7GG">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <color key="tintColor" name="Turquoise"/>
+    <resources>
+        <namedColor name="Blue">
+            <color red="0.24313725490196078" green="0.090196078431372548" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Bog">
+            <color red="0.054901960784313725" green="0.21568627450980393" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Charcoal">
+            <color red="0.0" green="0.1803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gray">
+            <color red="0.50199997425079346" green="0.50199997425079346" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.0" green="0.48627450980392156" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Orange">
+            <color red="1" green="0.47843137254901963" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Pink">
+            <color red="1" green="0.46666666666666667" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Purple">
+            <color red="0.61568627450980395" green="0.36862745098039218" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="0.88627450980392153" green="0.10588235294117647" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Teal">
+            <color red="0.0" green="0.68235294117647061" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Turquoise">
+            <color red="0.12941176470588237" green="0.69019607843137254" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Venetian">
+            <color red="0.38039215686274508" green="0.058823529411764705" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow">
+            <color red="1" green="0.67843137254901964" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
