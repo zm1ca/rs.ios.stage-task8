@@ -7,10 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Palette.h"
+#import "rs_ios_stage_task8-Swift.h"
 
-@interface ArtistViewController : UIViewController <UIViewControllerTransitioningDelegate, PaletteDelegate>
+@interface ArtistViewController : UIViewController <UIViewControllerTransitioningDelegate, PaletteDelegate, TimerDelegate>
 
 @property(nonatomic, copy) NSOrderedSet<UIColor *>* pickedColors;
+@property float timerValue;
 
 @end
 

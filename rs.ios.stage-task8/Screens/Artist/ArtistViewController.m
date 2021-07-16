@@ -8,11 +8,17 @@
 #import "ArtistViewController.h"
 #import "Palette.h"
 #import "NSMutableArray+Shuffle.h"
+#import "CanvasView.h"
+#import "UIView+AsImage.h"
+#import "rs_ios_stage_task8-Swift.h"
 
 @interface ArtistViewController ()
 
+@property (weak, nonatomic) IBOutlet CanvasView *canvas;
+
 - (IBAction)openPaletteTapped:(UIButton *)sender;
 - (IBAction)openTimerTapped:(UIButton *)sender;
+- (IBAction)shareButtonTapped:(id)sender;
 
 @end
 
@@ -21,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _pickedColors = [[NSOrderedSet<UIColor *> alloc] init];
+    _timerValue   = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -28,12 +35,25 @@
     [self generateColorsForLines];
 }
 
+- (IBAction)shareButtonTapped:(id)sender {
+    UIGraphicsBeginImageContext(_canvas.frame.size);
+    [_canvas.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *canvasImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *pngData = UIImagePNGRepresentation(canvasImage);
+    //UIImage *pngImage = [[UIImage alloc] initWithData:pngData];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[pngData] applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 - (IBAction)openTimerTapped:(UIButton *)sender {
-//    Timer *timer = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Timer"];
-//    [self configureVCAsChild:timer];
-//    [self addChildViewController:timer];
-//    [self.view addSubview:timer.view];
-//    [timer didMoveToParentViewController:self];
+    Timer *timer = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Timer"];
+    timer.timerValue = [[NSNumber alloc] initWithFloat:_timerValue];
+    timer.delegate = self;
+    [self configureVCAsChild:timer];
+    [self addChildViewController:timer];
+    [self.view addSubview:timer.view];
+    [timer didMoveToParentViewController:self];
 }
 
 - (IBAction)openPaletteTapped:(UIButton *)sender {
@@ -72,6 +92,10 @@
     }
     [lineColors shuffle];
     return [[NSOrderedSet alloc] initWithArray:lineColors];
+}
+
+- (void)timerDidPickWithValue:(float)value {
+    _timerValue = value;
 }
 
 @end

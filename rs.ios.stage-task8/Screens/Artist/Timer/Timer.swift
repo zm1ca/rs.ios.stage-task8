@@ -7,23 +7,37 @@
 
 import UIKit
 
-public class Timer: UIViewController {
+@objc public protocol TimerDelegate {
+    func timerDidPick(value: Float)
+}
 
+@objc public class Timer: UIViewController {
+    
+    @objc public var timerValue: NSNumber!
+    
+    @objc public weak var delegate: TimerDelegate!
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var stepper: UISlider!
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        stepper.value = timerValue.floatValue
+        updateUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func stepperValueChanged(_ sender: UISlider) {
+        updateUI()
     }
-    */
-
+    
+    func updateUI() {
+        timerLabel.text = String(format: "%.1f", stepper.value) + " s"
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        delegate.timerDidPick(value: stepper.value)
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
+    }
 }
