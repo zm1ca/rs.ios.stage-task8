@@ -37,9 +37,14 @@
 
 - (IBAction)saveButtonTapped:(UIButton *)sender {
     [_delegate paletteDidPick:_pickedColors];
-    [self willMoveToParentViewController:nil];
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [self willMoveToParentViewController:nil];
+        [self.view removeFromSuperview];
+        [self removeFromParentViewController];
+    }];
+    
 }
 
 - (IBAction)colorButtonTapped:(ColorPickerButton *)sender {

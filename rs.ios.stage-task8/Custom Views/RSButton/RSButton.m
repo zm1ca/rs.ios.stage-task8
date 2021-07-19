@@ -30,7 +30,7 @@
     [self setEnabled:YES];
 }
 
-- (void)setPickedTint {
+- (void)setHighlightedTint {
     self.layer.shadowRadius = 4.0f;
     self.layer.shadowColor = [[UIColor colorNamed:@"Turquoise"] CGColor];
     self.layer.shadowOpacity = 1.0f;
@@ -46,14 +46,5 @@
     self.alpha = 0.5;
     [self setEnabled:NO];
 }
-
-//- (void)setHighlighted:(BOOL)highlighted {
-//    [super setHighlighted:highlighted];
-//    if (highlighted) {
-//        [self setPickedTint];
-//    } else {
-//        [self setDefaultTint];
-//    }
-//}
 
 @end

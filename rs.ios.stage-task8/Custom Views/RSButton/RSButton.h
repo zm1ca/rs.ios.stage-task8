@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RSButton : UIButton
 
-- (void)setPickedTint;
+- (void)setHighlightedTint;
 - (void)setDefaultTint;
 - (void)setDisabledTint;
 

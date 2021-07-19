@@ -30,7 +30,7 @@
     
     self.shape3Layer.strokeEnd = 0;
     self.shape3Layer.lineWidth = 1.0;
-    self.shape3Layer.path = [self getGrassVector].CGPath;
+    self.shape3Layer.path = [self getDownhillVector].CGPath;
     self.shape3Layer.fillColor = UIColor.clearColor.CGColor;
     self.shape3Layer.strokeColor = colors[2].CGColor;
     self.shape3Layer.position = CGPointMake(28, 154);
@@ -212,7 +212,7 @@
     return bezierPath;
 }
 
-- (UIBezierPath*)getGrassVector {
+- (UIBezierPath*)getDownhillVector {
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint: CGPointMake(18.5, 67.5)];
     [bezierPath addLineToPoint: CGPointMake(33, 67.5)];

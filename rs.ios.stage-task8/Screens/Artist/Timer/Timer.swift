@@ -36,8 +36,12 @@ import UIKit
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         delegate.timerDidPick(value: stepper.value)
-        self.willMove(toParent: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParent()
+        UIView.animate(withDuration: 0.25) { [self] in
+            view.frame = CGRect(x: 0, y: view.bounds.size.height, width: view.bounds.size.width, height: view.bounds.size.height)
+        } completion: { _ in
+            self.willMove(toParent: nil)
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+        }
     }
 }

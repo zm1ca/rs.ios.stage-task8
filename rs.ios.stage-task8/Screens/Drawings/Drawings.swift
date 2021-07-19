@@ -21,7 +21,7 @@ import UIKit
     public override func viewDidLoad() {
         super.viewDidLoad()
         let selectedButton = patternButtons.first { $0.titleLabel?.text == selectedDrawing as String }!
-        selectedButton.setPickedTint()
+        selectedButton.setHighlightedTint()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -31,7 +31,7 @@ import UIKit
     
     @IBAction func patternButtonTapped(_ sender: RSButton) {
         patternButtons.filter { $0 != sender }.forEach { $0.setDefaultTint() }
-        sender.setPickedTint()
+        sender.setHighlightedTint()
         
         selectedDrawing = sender.titleLabel!.text! as NSString
     }

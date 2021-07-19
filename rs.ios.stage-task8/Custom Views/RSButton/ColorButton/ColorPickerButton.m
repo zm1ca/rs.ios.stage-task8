@@ -26,8 +26,8 @@
 
 - (void)setDefaultAppearance {
     [UIView animateWithDuration:0.25 animations:^{
-        _colorHolder.frame = CGRectMake(8, 8, 24, 24);
-        _colorHolder.layer.cornerRadius = 6;
+        self->_colorHolder.frame = CGRectMake(8, 8, 24, 24);
+        self->_colorHolder.layer.cornerRadius = 6;
     }];
 
     self.appearingAsDefault = YES;
@@ -35,8 +35,8 @@
 
 - (void)setSelectedAppearance {
     [UIView animateWithDuration:0.25 animations:^{
-        _colorHolder.frame = CGRectMake(2, 2, 36, 36);
-        _colorHolder.layer.cornerRadius = 8;
+        self->_colorHolder.frame = CGRectMake(2, 2, 36, 36);
+        self->_colorHolder.layer.cornerRadius = 8;
     }];
 
     self.appearingAsDefault = NO;

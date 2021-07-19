@@ -96,7 +96,7 @@
         } else {
             [_canvas drawLandscapeWithColors:[self generateColorsForLines]];
         }
-        
+            
         [_redrawTimer invalidate];
         [self setLayersStrokeEndTo:0];
         __block float stroke = 0;
@@ -134,8 +134,12 @@
 
 
 //MARK: - Communicating with Child VC's Timer and Palette
-- (void)configureVCAsChild:(UIViewController *)childVC {
-    childVC.view.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height);
+- (void)configureAsRoundedAndHalfSize:(UIViewController *)childVC {
+    childVC.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    [UIView animateWithDuration:0.25 animations:^{
+        childVC.view.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height);
+    }];
+    
     childVC.view.backgroundColor     = [UIColor whiteColor];
     childVC.view.layer.cornerRadius  = 40;
     childVC.view.layer.shadowOffset  = CGSizeZero;
@@ -150,7 +154,7 @@
     Palette *palette = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Palette"];
     palette.pickedColors = [_pickedColors mutableCopy];
     palette.delegate = self;
-    [self configureVCAsChild:palette];
+    [self configureAsRoundedAndHalfSize:palette];
     [self addChildViewController:palette];
     [self.view addSubview:palette.view];
     [palette didMoveToParentViewController:self];
@@ -169,7 +173,7 @@
     Timer *timer = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Timer"];
     timer.timerValue = [[NSNumber alloc] initWithFloat:_timerValue];
     timer.delegate = self;
-    [self configureVCAsChild:timer];
+    [self configureAsRoundedAndHalfSize:timer];
     [self addChildViewController:timer];
     [self.view addSubview:timer.view];
     [timer didMoveToParentViewController:self];
