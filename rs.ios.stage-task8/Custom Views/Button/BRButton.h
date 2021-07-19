@@ -1,5 +1,5 @@
 //
-//  RSButton.h
+//  BRButton.h
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RSButton : UIButton
+@interface BRButton : UIButton
 
 - (void)setHighlightedTint;
 - (void)setDefaultTint;

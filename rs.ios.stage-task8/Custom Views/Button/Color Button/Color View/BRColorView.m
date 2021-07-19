@@ -1,13 +1,13 @@
 //
-//  ColorHolderView.m
+//  BRColorView.m
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
-#import "ColorHolderView.h"
+#import "BRColorView.h"
 
-@implementation ColorHolderView
+@implementation BRColorView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

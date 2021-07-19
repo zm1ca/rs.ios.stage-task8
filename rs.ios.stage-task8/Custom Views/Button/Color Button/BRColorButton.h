@@ -1,17 +1,17 @@
 //
-//  ColorPickerButton.h
+//  BRColorButton.h
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
 #import <UIKit/UIKit.h>
-#import "RSButton.h"
+#import "BRButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 IB_DESIGNABLE
-@interface ColorPickerButton : RSButton
+@interface BRColorButton : BRButton
 
 @property(nonatomic, copy) UIView *colorHolder;
 @property(nonatomic, copy) IBInspectable UIColor* color;

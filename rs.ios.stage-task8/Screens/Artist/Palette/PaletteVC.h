@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)paletteDidPick:(NSMutableOrderedSet<UIColor *>*)colors;
 @end
 
-@interface Palette : UIViewController
+@interface PaletteVC : UIViewController
 
 @property NSMutableOrderedSet<UIColor *>* pickedColors;
 @property NSTimer* bgTimer;

@@ -1,13 +1,13 @@
 //
-//  ArtistViewController.m
+//  ArtistVC.m
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
-#import "ArtistViewController.h"
-#import "Palette.h"
-#import "RSButton.h"
+#import "ArtistVC.h"
+#import "PaletteVC.h"
+#import "BRButton.h"
 #import "CanvasView.h"
 #import "CanvasView+Planet.h"
 #import "CanvasView+Landscape.h"
@@ -17,12 +17,12 @@
 #import "UIView+AsImage.h"
 #import "rs_ios_stage_task8-Swift.h"
 
-@interface ArtistViewController ()
+@interface ArtistVC ()
 
-@property (weak, nonatomic) IBOutlet RSButton *openPaletteButton;
-@property (weak, nonatomic) IBOutlet RSButton *drawButton;
-@property (weak, nonatomic) IBOutlet RSButton *openTimerButton;
-@property (weak, nonatomic) IBOutlet RSButton *shareButton;
+@property (weak, nonatomic) IBOutlet BRButton *openPaletteButton;
+@property (weak, nonatomic) IBOutlet BRButton *drawButton;
+@property (weak, nonatomic) IBOutlet BRButton *openTimerButton;
+@property (weak, nonatomic) IBOutlet BRButton *shareButton;
 @property (weak, nonatomic) IBOutlet CanvasView *canvas;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *drawingsBarButton;
 
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation ArtistViewController
+@implementation ArtistVC
 
 //MARK: Lifecycle and customization
 - (void)viewDidLoad {
@@ -151,7 +151,7 @@
 
 //MARK: Palette
 - (IBAction)openPaletteTapped:(UIButton *)sender {
-    Palette *palette = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Palette"];
+    PaletteVC *palette = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Palette"];
     palette.pickedColors = [_pickedColors mutableCopy];
     palette.delegate = self;
     [self configureAsRoundedAndHalfSize:palette];
@@ -170,7 +170,7 @@
 }
 
 - (IBAction)openTimerTapped:(UIButton *)sender {
-    Timer *timer = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Timer"];
+    TimerVC *timer = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Timer"];
     timer.timerValue = [[NSNumber alloc] initWithFloat:_timerValue];
     timer.delegate = self;
     [self configureAsRoundedAndHalfSize:timer];

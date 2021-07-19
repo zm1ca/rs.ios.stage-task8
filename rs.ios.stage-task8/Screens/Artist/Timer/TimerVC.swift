@@ -1,5 +1,5 @@
 //
-//  Timer.swift
+//  TimerVC.swift
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 16.07.21.
@@ -11,7 +11,7 @@ import UIKit
     func timerDidPick(value: Float)
 }
 
-@objc public class Timer: UIViewController {
+@objc public class TimerVC: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var stepper: UISlider!

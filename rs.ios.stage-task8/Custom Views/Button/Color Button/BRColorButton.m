@@ -1,19 +1,19 @@
 //
-//  ColorPickerButton.m
+//  BRColorButton.m
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
-#import "ColorPickerButton.h"
-#import "ColorHolderView.h"
+#import "BRColorButton.h"
+#import "BRColorView.h"
 
-@implementation ColorPickerButton
+@implementation BRColorButton
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    ColorHolderView *smallColorHolder = [[ColorHolderView alloc] initWithFrame:CGRectMake(8, 8, 24, 24)];
+    BRColorView *smallColorHolder = [[BRColorView alloc] initWithFrame:CGRectMake(8, 8, 24, 24)];
     smallColorHolder.backgroundColor = _color;
     smallColorHolder.layer.cornerRadius = 6;
     

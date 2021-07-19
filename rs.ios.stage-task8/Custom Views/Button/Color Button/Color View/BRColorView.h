@@ -1,5 +1,5 @@
 //
-//  ColorHolderView.h
+//  BRColorView.h
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorHolderView : UIView
+@interface BRColorView : UIView
 
 @end
 

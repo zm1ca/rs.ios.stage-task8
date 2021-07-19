@@ -5,9 +5,9 @@
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
-#import "RSButton.h"
+#import "BRButton.h"
 
-@implementation RSButton
+@implementation BRButton
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -31,10 +31,10 @@
 }
 
 - (void)setHighlightedTint {
-    self.layer.shadowRadius = 4.0f;
-    self.layer.shadowColor = [[UIColor colorNamed:@"Turquoise"] CGColor];
-    self.layer.shadowOpacity = 1.0f;
-    self.alpha = 1;
+    self.layer.shadowRadius   = 4.0f;
+    self.layer.shadowColor    = [[UIColor colorNamed:@"Turquoise"] CGColor];
+    self.layer.shadowOpacity  = 1.0f;
+    self.alpha                = 1;
     self.titleLabel.textColor = [UIColor colorNamed:@"Turquoise"];
     [self setEnabled:YES];
 }

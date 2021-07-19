@@ -10,6 +10,7 @@
 @implementation CanvasView (Landscape)
 
 -(void)drawLandscapeWithColors:(NSArray<UIColor*>*)colors {
+    //TODO: FIX layer addition/removal logic
     [self.shape1Layer removeFromSuperlayer];
     [self.shape2Layer removeFromSuperlayer];
     [self.shape3Layer removeFromSuperlayer];

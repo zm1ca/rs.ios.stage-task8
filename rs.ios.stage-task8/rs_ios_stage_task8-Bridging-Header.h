@@ -8,6 +8,6 @@
 #ifndef rs_ios_stage_task8_Bridging_Header_h
 #define rs_ios_stage_task8_Bridging_Header_h
 
-#import "RSButton.h"
+#import "BRButton.h"
 
 #endif /* rs_ios_stage_task8_Bridging_Header_h */

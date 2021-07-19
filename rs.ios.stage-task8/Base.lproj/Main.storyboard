@@ -21,7 +21,7 @@
         <!--Artist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ArtistViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArtistVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="height" constant="300" id="yol-PO-4UN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-EL-Frm" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-EL-Frm" customClass="BRControlButton">
                                 <rect key="frame" x="20" y="452" width="163" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="5cR-wc-ZAw"/>
@@ -48,7 +48,7 @@
                                     <action selector="openPaletteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uc7-rO-nvM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-5L-fsM" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-5L-fsM" customClass="BRControlButton">
                                 <rect key="frame" x="20" y="504" width="151" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="151" id="Wuc-cD-KdP"/>
@@ -62,7 +62,7 @@
                                     <action selector="openTimerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Kk-Ke-Piw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-go-6Nn" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-go-6Nn" customClass="BRControlButton">
                                 <rect key="frame" x="243" y="452" width="91" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="QCA-1F-jnp"/>
@@ -76,7 +76,7 @@
                                     <action selector="drawTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zF8-ZH-8in"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-Gu-zJG" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5v-Gu-zJG" customClass="BRControlButton">
                                 <rect key="frame" x="239" y="504" width="95" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="1o8-yA-QNf"/>
@@ -139,7 +139,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="z8d-sH-ZAa">
                                 <rect key="frame" x="88" y="112" width="200" height="205"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-Jr-YcJ" customClass="RSButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-Jr-YcJ" customClass="BRButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="YdU-Aa-cgj"/>
@@ -153,7 +153,7 @@
                                             <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="PoE-op-LXZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw8-Ob-svg" customClass="RSButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw8-Ob-svg" customClass="BRButton">
                                         <rect key="frame" x="0.0" y="55" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dH7-dd-qoG"/>
@@ -167,7 +167,7 @@
                                             <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="uzb-X2-kV0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-0m-uD8" customClass="RSButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-0m-uD8" customClass="BRButton">
                                         <rect key="frame" x="0.0" y="110" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="ivw-lc-moI"/>
@@ -181,7 +181,7 @@
                                             <action selector="patternButtonTapped:" destination="iqX-a0-n5t" eventType="touchUpInside" id="KkE-2w-aUN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-2m-g2s" customClass="RSButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-2m-g2s" customClass="BRButton">
                                         <rect key="frame" x="0.0" y="165" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="9Tt-di-SfX"/>
@@ -228,7 +228,7 @@
         <!--Palette-->
         <scene sceneID="UlR-oy-1Yi">
             <objects>
-                <viewController storyboardIdentifier="Palette" title="Palette" id="zCb-Qd-E0M" customClass="Palette" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Palette" title="Palette" id="zCb-Qd-E0M" customClass="PaletteVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hMt-NS-dDH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,7 +239,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wCp-xP-vGP">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-vS-om1" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maM-vS-om1" customClass="BRColorButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -258,7 +258,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="ZcB-3C-wEb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehq-fn-AIc" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehq-fn-AIc" customClass="BRColorButton">
                                                 <rect key="frame" x="60" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -273,7 +273,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="AvW-a0-LCw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRx-FX-Q8J" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRx-FX-Q8J" customClass="BRColorButton">
                                                 <rect key="frame" x="120" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -288,7 +288,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="7Tt-8O-d0l"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-jh-aoP" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-jh-aoP" customClass="BRColorButton">
                                                 <rect key="frame" x="180" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -303,7 +303,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="Y3c-we-Cm8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKn-9G-dDy" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKn-9G-dDy" customClass="BRColorButton">
                                                 <rect key="frame" x="240" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -318,7 +318,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="XMJ-f3-kej"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me0-6e-CTi" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me0-6e-CTi" customClass="BRColorButton">
                                                 <rect key="frame" x="300" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -338,7 +338,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="djm-ew-sQE">
                                         <rect key="frame" x="0.0" y="60" width="340" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llj-vK-FXU" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llj-vK-FXU" customClass="BRColorButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -357,7 +357,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="bEc-8Y-jSR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bir-dP-qfZ" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bir-dP-qfZ" customClass="BRColorButton">
                                                 <rect key="frame" x="60" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -372,7 +372,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="eUy-J2-i9r"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-XM-4dE" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-XM-4dE" customClass="BRColorButton">
                                                 <rect key="frame" x="120" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -387,7 +387,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="4K9-11-xJF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-vJ-7GG" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-vJ-7GG" customClass="BRColorButton">
                                                 <rect key="frame" x="180" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -402,7 +402,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="qoJ-cN-U6s"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-2c-WbG" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-2c-WbG" customClass="BRColorButton">
                                                 <rect key="frame" x="240" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -417,7 +417,7 @@
                                                     <action selector="colorButtonTapped:" destination="zCb-Qd-E0M" eventType="touchUpInside" id="Y95-K8-w6w"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-b6-wSA" customClass="ColorPickerButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-b6-wSA" customClass="BRColorButton">
                                                 <rect key="frame" x="300" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
@@ -436,7 +436,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bva-d5-nn1" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bva-d5-nn1" customClass="BRControlButton">
                                 <rect key="frame" x="250" y="20" width="85" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="EjT-uH-sni"/>
@@ -481,15 +481,15 @@
             </objects>
             <point key="canvasLocation" x="568.79999999999995" y="904.49775112443785"/>
         </scene>
-        <!--Timer-->
+        <!--TimerVC-->
         <scene sceneID="voA-TZ-nqf">
             <objects>
-                <viewController storyboardIdentifier="Timer" id="3D2-Uf-FeV" customClass="Timer" customModule="rs_ios_stage_task8" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timer" id="3D2-Uf-FeV" customClass="TimerVC" customModule="rs_ios_stage_task8" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCo-1r-mZD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-VP-8cy" customClass="ControlButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-VP-8cy" customClass="BRControlButton">
                                 <rect key="frame" x="250" y="20" width="85" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="PQQ-Id-MRQ"/>
@@ -515,13 +515,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOL-XE-3AW">
-                                <rect key="frame" x="340" y="116.5" width="10.5" height="21"/>
+                                <rect key="frame" x="340" y="116" width="10.5" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-pw-lV8">
-                                <rect key="frame" x="24.5" y="116.5" width="10.5" height="21"/>
+                                <rect key="frame" x="28.5" y="116" width="6.5" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

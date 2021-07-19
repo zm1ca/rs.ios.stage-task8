@@ -13,7 +13,7 @@ import UIKit
 
 @objc public class Drawings: UIViewController {
     
-    @IBOutlet var patternButtons: [RSButton]!
+    @IBOutlet var patternButtons: [BRButton]!
     
     @objc public var selectedDrawing: NSString!    
     @objc public weak var delegate: DrawingsDelegate!
@@ -29,7 +29,7 @@ import UIKit
         delegate.updateDrawingWith(drawing: NSString(string: selectedDrawing))
     }
     
-    @IBAction func patternButtonTapped(_ sender: RSButton) {
+    @IBAction func patternButtonTapped(_ sender: BRButton) {
         patternButtons.filter { $0 != sender }.forEach { $0.setDefaultTint() }
         sender.setHighlightedTint()
         

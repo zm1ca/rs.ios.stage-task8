@@ -21,9 +21,8 @@
 }
 
 - (void)configureLayer {
-    self.layer.cornerRadius = 8.0f;
-    
     self.backgroundColor = [UIColor whiteColor];
+    self.layer.cornerRadius = 8.0f;
     self.layer.shadowOffset = CGSizeZero;
     self.layer.masksToBounds = NO;
     self.layer.shadowRadius = 8.0f;

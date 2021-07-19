@@ -1,23 +1,23 @@
 //
-//  Palette.m
+//  PaletteVC.m
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 15.07.21.
 //
 
-#import "Palette.h"
-#import "ColorPickerButton.h"
+#import "PaletteVC.h"
+#import "BRColorButton.h"
 
-@interface Palette ()
+@interface PaletteVC ()
 
-- (IBAction)colorButtonTapped:(ColorPickerButton *)sender;
+- (IBAction)colorButtonTapped:(BRColorButton *)sender;
 - (IBAction)saveButtonTapped:(UIButton *)sender;
 
-@property (strong, nonatomic) IBOutletCollection(ColorPickerButton) NSArray<ColorPickerButton*> *colorButtons;
+@property (strong, nonatomic) IBOutletCollection(BRColorButton) NSArray<BRColorButton*> *colorButtons;
 
 @end
 
-@implementation Palette
+@implementation PaletteVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,16 +47,18 @@
     
 }
 
-- (IBAction)colorButtonTapped:(ColorPickerButton *)sender {
-    [sender toggleState];
+- (IBAction)colorButtonTapped:(BRColorButton *)sender {
     
-    //Deselect color
+    //Select or deselect color
+    [sender toggleState];
     if ([_pickedColors containsObject:sender.color]) {
         [_pickedColors removeObject:sender.color];
         return;
+    } else {
+        [self select:sender.color];
     }
 
-    [self selectNewColor:sender.color];
+    //Animate adjusting background color
     [UIView animateWithDuration:0.25 animations:^{
         self.view.backgroundColor = sender.color;
     }];
@@ -69,7 +71,7 @@
     }];
 }
 
-- (void)selectNewColor:(UIColor*)color {
+- (void)select:(UIColor*)color {
     [_pickedColors addObject:color];
      if (_pickedColors.count > 3) {
         for (int index = 0; index < _colorButtons.count; index++) {

@@ -1,13 +1,13 @@
 //
-//  ControlButton.m
+//  BRControlButton.m
 //  rs.ios.stage-task8
 //
 //  Created by Źmicier Fiedčanka on 19.07.21.
 //
 
-#import "ControlButton.h"
+#import "BRControlButton.h"
 
-@implementation ControlButton
+@implementation BRControlButton
 
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
