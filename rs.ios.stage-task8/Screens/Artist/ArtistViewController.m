@@ -33,6 +33,7 @@
 
 @implementation ArtistViewController
 
+//MARK: Lifecycle and customization
 - (void)viewDidLoad {
     [super viewDidLoad];
     _pickedColors = [[NSOrderedSet<UIColor *> alloc] init];
@@ -58,15 +59,59 @@
                                           forState:UIControlStateHighlighted];
 }
 
-- (IBAction)shareButtonTapped:(id)sender {
-    UIGraphicsBeginImageContext(_canvas.frame.size);
-    [_canvas.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *canvasImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSData *pngData = UIImagePNGRepresentation(canvasImage);
-    //UIImage *pngImage = [[UIImage alloc] initWithData:pngData];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[pngData] applicationActivities:nil];
-    [self presentViewController:activityVC animated:YES completion:nil];
+
+//MARK: - Drawing
+- (IBAction)drawTapped:(id)sender {
+    NSArray<UIColor *>* colors = [self generateColorsForLines];
+    [_canvas drawHeadWithColor1:colors[0] color2:colors[1] color3:colors[2]];
+}
+
+- (NSMutableArray<UIColor *>*)generateColorsForLines {
+    NSMutableArray<UIColor *>* lineColors = [[NSMutableArray alloc] initWithArray:[_pickedColors array]];
+    while (lineColors.count < 3) {
+        [lineColors addObject:[UIColor blackColor]];
+    }
+    [lineColors shuffle];
+    return lineColors;
+}
+
+- (void)adjustLayersStrokeEndTo:(float)strokeEnd {
+    _canvas.shape1Layer.strokeEnd = strokeEnd;
+    _canvas.shape2Layer.strokeEnd = strokeEnd;
+    _canvas.shape3Layer.strokeEnd = strokeEnd;
+}
+
+
+//MARK: - Communicating with Child VC's Timer and Palette
+- (void)configureVCAsChild:(UIViewController *)childVC {
+    childVC.view.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height);
+    childVC.view.backgroundColor     = [UIColor whiteColor];
+    childVC.view.layer.cornerRadius  = 40;
+    childVC.view.layer.shadowOffset  = CGSizeZero;
+    childVC.view.layer.masksToBounds = NO;
+    childVC.view.layer.shadowRadius  = 8.0f;
+    childVC.view.layer.shadowColor   = [[UIColor blackColor] CGColor];
+    childVC.view.layer.shadowOpacity = .25f;
+}
+
+//MARK: Palette
+- (IBAction)openPaletteTapped:(UIButton *)sender {
+    Palette *palette = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Palette"];
+    palette.pickedColors = [_pickedColors mutableCopy];
+    palette.delegate = self;
+    [self configureVCAsChild:palette];
+    [self addChildViewController:palette];
+    [self.view addSubview:palette.view];
+    [palette didMoveToParentViewController:self];
+}
+
+- (void)paletteDidPick:(nonnull NSMutableOrderedSet<UIColor *> *)colors {
+    _pickedColors = colors;
+}
+
+//MARK: Timer
+- (void)timerDidPickWithValue:(float)value {
+    _timerValue = value;
 }
 
 - (IBAction)openTimerTapped:(UIButton *)sender {
@@ -79,54 +124,8 @@
     [timer didMoveToParentViewController:self];
 }
 
-- (IBAction)openPaletteTapped:(UIButton *)sender {
-    Palette *palette = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Palette"];
-    palette.pickedColors = [_pickedColors mutableCopy];
-    palette.delegate = self;
-    [self configureVCAsChild:palette];
-    [self addChildViewController:palette];
-    [self.view addSubview:palette.view];
-    [palette didMoveToParentViewController:self];
-}
 
-- (IBAction)drawTapped:(id)sender {
-    NSArray<UIColor *>* colors = [self generateColorsForLines];
-    NSLog(@"%@", colors);
-    [_canvas drawHeadWithColor1:colors[0] color2:colors[1] color3:colors[2]];
-    _canvas.shape1Layer.strokeEnd = 0.7;
-    _canvas.shape2Layer.strokeEnd = 0.7;
-    _canvas.shape3Layer.strokeEnd = 0.7;
-}
-
-- (NSMutableArray<UIColor *>*)generateColorsForLines {
-    NSMutableArray<UIColor *>* lineColors = [[NSMutableArray alloc] initWithArray:[_pickedColors array]];
-    while (lineColors.count < 3) {
-        [lineColors addObject:[UIColor blackColor]];
-    }
-    [lineColors shuffle];
-    return lineColors;
-}
-
-- (void)configureVCAsChild:(UIViewController *)childVC {
-    childVC.view.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height);
-    childVC.view.backgroundColor     = [UIColor whiteColor];
-    childVC.view.layer.cornerRadius  = 40;
-    childVC.view.layer.shadowOffset  = CGSizeZero;
-    childVC.view.layer.masksToBounds = NO;
-    childVC.view.layer.shadowRadius  = 8.0f;
-    childVC.view.layer.shadowColor   = [[UIColor blackColor] CGColor];
-    childVC.view.layer.shadowOpacity = .25f;
-}
-
-
-- (void)paletteDidPick:(nonnull NSMutableOrderedSet<UIColor *> *)colors {
-    _pickedColors = colors;
-}
-
-- (void)timerDidPickWithValue:(float)value {
-    _timerValue = value;
-}
-
+//MARK: - Communicating with Drawings
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Drawings *destVC = (Drawings *)segue.destinationViewController;
     destVC.delegate = self;
@@ -135,7 +134,20 @@
 
 - (void)updateDrawingWithDrawing:(NSString * _Nonnull)drawing {
     _drawing = drawing;
-    //TODO: do stuff
 }
+
+
+//MARK: - Sharing
+- (IBAction)shareButtonTapped:(id)sender {
+    UIGraphicsBeginImageContext(_canvas.frame.size);
+    [_canvas.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *canvasImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *pngData = UIImagePNGRepresentation(canvasImage);
+    //UIImage *pngImage = [[UIImage alloc] initWithData:pngData];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[pngData] applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 
 @end
