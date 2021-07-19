@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CanvasView (Head)
 
--(void)drawHeadWithColor1:(UIColor*)color1 color2:(UIColor*)color2 color3:(UIColor *)color3;
+- (void)drawHeadWithColors:(NSArray<UIColor*>*)colors;
 
 @end
 

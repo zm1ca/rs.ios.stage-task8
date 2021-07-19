@@ -35,15 +35,25 @@
     self.layer.shadowColor = [[UIColor colorNamed:@"Turquoise"] CGColor];
     self.layer.shadowOpacity = 1.0f;
     self.alpha = 1;
+    self.titleLabel.textColor = [UIColor colorNamed:@"Turquoise"];
     [self setEnabled:YES];
 }
 
-- (void)setDisabled {
+- (void)setDisabledTint {
     self.layer.shadowRadius   = 2.0f;
     self.layer.shadowColor    = [[UIColor blackColor] CGColor];
     self.layer.shadowOpacity  = .25f;
     self.alpha = 0.5;
     [self setEnabled:NO];
 }
+
+//- (void)setHighlighted:(BOOL)highlighted {
+//    [super setHighlighted:highlighted];
+//    if (highlighted) {
+//        [self setPickedTint];
+//    } else {
+//        [self setDefaultTint];
+//    }
+//}
 
 @end

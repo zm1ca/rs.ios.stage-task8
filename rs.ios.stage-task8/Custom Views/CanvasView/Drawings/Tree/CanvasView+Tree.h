@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CanvasView (Tree)
 
--(void)drawTreeWithColor1:(UIColor*)color1 color2:(UIColor*)color2 color3:(UIColor *)color3;
+- (void)drawTreeWithColors:(NSArray<UIColor*>*)colors;
 
 @end
 

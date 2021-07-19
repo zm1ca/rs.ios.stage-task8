@@ -9,6 +9,9 @@
 #import "Palette.h"
 #import "RSButton.h"
 #import "CanvasView.h"
+#import "CanvasView+Planet.h"
+#import "CanvasView+Landscape.h"
+#import "CanvasView+Tree.h"
 #import "CanvasView+Head.h"
 #import "NSMutableArray+Shuffle.h"
 #import "UIView+AsImage.h"
@@ -20,14 +23,13 @@
 @property (weak, nonatomic) IBOutlet RSButton *drawButton;
 @property (weak, nonatomic) IBOutlet RSButton *openTimerButton;
 @property (weak, nonatomic) IBOutlet RSButton *shareButton;
-
 @property (weak, nonatomic) IBOutlet CanvasView *canvas;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *drawingsBarButton;
 
-- (IBAction)drawTapped:(id)sender;
+- (IBAction)drawTapped:       (UIButton *)sender;
 - (IBAction)openPaletteTapped:(UIButton *)sender;
-- (IBAction)openTimerTapped:(UIButton *)sender;
-- (IBAction)shareButtonTapped:(id)sender;
+- (IBAction)openTimerTapped:  (UIButton *)sender;
+- (IBAction)shareButtonTapped:(UIButton *)sender;
 
 @end
 
@@ -39,7 +41,7 @@
     _pickedColors = [[NSOrderedSet<UIColor *> alloc] init];
     _timerValue   = 1;
     _drawing      = @"Head";
-//    [_shareButton setDisabled];
+    [self setIdleState];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,21 +51,70 @@
 }
 
 -(void)crutchForBarButtonFont {
-    [self.drawingsBarButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-        [UIFont fontWithName:@"Montserrat-Regular" size:17.0], NSFontAttributeName,
-                                                    nil]
-                                          forState:UIControlStateNormal];
-    [self.drawingsBarButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-        [UIFont fontWithName:@"Montserrat-Regular" size:17.0], NSFontAttributeName,
-                                                    nil]
-                                          forState:UIControlStateHighlighted];
+    NSDictionary *fontDict = [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Montserrat-Regular" size:17.0], NSFontAttributeName, nil];
+    [self.drawingsBarButton setTitleTextAttributes: fontDict forState:UIControlStateNormal];
+    [self.drawingsBarButton setTitleTextAttributes: fontDict forState:UIControlStateHighlighted];
+}
+
+
+//MARK: - Managing state
+- (void)setIdleState {
+    [_openPaletteButton setDefaultTint];
+    [_openTimerButton   setDefaultTint];
+    [_drawButton        setDefaultTint];
+    
+    [_shareButton       setDisabledTint];
+}
+
+- (void)setDrawState {
+    [_openPaletteButton setDisabledTint];
+    [_openTimerButton   setDisabledTint];
+    [_drawButton        setDisabledTint];
+    [_shareButton       setDisabledTint];
+}
+
+- (void)setDoneState {
+    [_openPaletteButton setDisabledTint];
+    [_openTimerButton   setDisabledTint];
+    
+    [_drawButton        setDefaultTint];
+    [_shareButton       setDefaultTint];
 }
 
 
 //MARK: - Drawing
-- (IBAction)drawTapped:(id)sender {
-    NSArray<UIColor *>* colors = [self generateColorsForLines];
-    [_canvas drawHeadWithColor1:colors[0] color2:colors[1] color3:colors[2]];
+- (IBAction)drawTapped:(UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"Draw"]) {
+        [self setDrawState];
+        
+        if ([_drawing isEqualToString:@"Planet"]) {
+            [_canvas drawPlanetWithColors:[self generateColorsForLines]];
+        } else if ([_drawing isEqualToString:@"Head"]) {
+            [_canvas drawHeadWithColors:[self generateColorsForLines]];
+        } else if ([_drawing isEqualToString:@"Tree"]) {
+            [_canvas drawTreeWithColors:[self generateColorsForLines]];
+        } else {
+            [_canvas drawLandscapeWithColors:[self generateColorsForLines]];
+        }
+        
+        [_redrawTimer invalidate];
+        [self setLayersStrokeEndTo:0];
+        __block float stroke = 0;
+        _redrawTimer = [NSTimer scheduledTimerWithTimeInterval:0.01667 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            stroke += (0.01667 / self->_timerValue);
+            [self setLayersStrokeEndTo:stroke];
+            if (stroke >= 1)  {
+                [timer invalidate];
+                sender.titleLabel.text = @"Reset";
+                [sender setTitle:@"Reset" forState:UIControlStateNormal];
+                [self setDoneState];
+            }
+        }];
+    } else {
+        [self setIdleState];
+        [sender setTitle:@"Draw" forState:UIControlStateNormal];
+        [self setLayersStrokeEndTo:0];
+    }
 }
 
 - (NSMutableArray<UIColor *>*)generateColorsForLines {
@@ -75,7 +126,7 @@
     return lineColors;
 }
 
-- (void)adjustLayersStrokeEndTo:(float)strokeEnd {
+- (void)setLayersStrokeEndTo:(float)strokeEnd {
     _canvas.shape1Layer.strokeEnd = strokeEnd;
     _canvas.shape2Layer.strokeEnd = strokeEnd;
     _canvas.shape3Layer.strokeEnd = strokeEnd;
@@ -138,13 +189,12 @@
 
 
 //MARK: - Sharing
-- (IBAction)shareButtonTapped:(id)sender {
+- (IBAction)shareButtonTapped:(UIButton *)sender {
     UIGraphicsBeginImageContext(_canvas.frame.size);
     [_canvas.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *canvasImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData *pngData = UIImagePNGRepresentation(canvasImage);
-    //UIImage *pngImage = [[UIImage alloc] initWithData:pngData];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[pngData] applicationActivities:nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }

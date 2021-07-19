@@ -14,7 +14,7 @@
 @property(nonatomic, copy) NSOrderedSet<UIColor *>* pickedColors;
 @property                  float timerValue;
 @property(nonatomic, copy) NSString *drawing;
-@property(nonatomic, copy) NSTimer *redrawTimer;
+@property(nonatomic, copy) NSTimer  *redrawTimer;
 
 @end
 

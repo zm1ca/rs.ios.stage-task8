@@ -9,8 +9,18 @@
 
 @implementation CanvasView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.shape1Layer = [[CAShapeLayer alloc] init];
+        self.shape2Layer = [[CAShapeLayer alloc] init];
+        self.shape3Layer = [[CAShapeLayer alloc] init];
+        [self configureLayer];
+    }
+    return self;
+}
+
+- (void)configureLayer {
     self.layer.cornerRadius = 8.0f;
     
     self.backgroundColor = [UIColor whiteColor];
@@ -19,14 +29,6 @@
     self.layer.shadowRadius = 8.0f;
     self.layer.shadowColor = [[UIColor colorNamed:@"ShadowColor"] CGColor];
     self.layer.shadowOpacity = .25f;
-    
-    self.shape1Layer = [[CAShapeLayer alloc] init];
-    self.shape2Layer = [[CAShapeLayer alloc] init];
-    self.shape3Layer = [[CAShapeLayer alloc] init];
-
-    [self.layer addSublayer:self.shape1Layer];
-    [self.layer addSublayer:self.shape2Layer];
-    [self.layer addSublayer:self.shape3Layer];
 }
 
 @end

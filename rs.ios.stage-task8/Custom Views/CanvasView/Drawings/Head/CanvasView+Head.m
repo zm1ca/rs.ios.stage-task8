@@ -9,25 +9,35 @@
 
 @implementation CanvasView (Head)
 
-- (void)drawHeadWithColor1:(UIColor *)color1 color2:(UIColor *)color2 color3:(UIColor *)color3 {
-    //TODO: fix duplication
-    self.shape1Layer.path = [[self getHeadChinVector] CGPath];
-    self.shape1Layer.fillColor = [[UIColor clearColor] CGColor];
-    self.shape1Layer.strokeColor = [color1 CGColor];
+- (void)drawHeadWithColors:(NSArray<UIColor*>*)colors {
+    [self.shape1Layer removeFromSuperlayer];
+    [self.shape2Layer removeFromSuperlayer];
+    [self.shape3Layer removeFromSuperlayer];
+
+    self.shape1Layer.strokeEnd = 0;
+    self.shape1Layer.path = [self getHeadChinVector].CGPath;
+    self.shape1Layer.fillColor = UIColor.clearColor.CGColor;
+    self.shape1Layer.strokeColor = colors[0].CGColor;
     self.shape1Layer.lineWidth = 1.0;
     self.shape1Layer.position = CGPointMake(61.5, 29);
     
-    self.shape2Layer.path = [[self getLipsHeadVector] CGPath];
-    self.shape2Layer.fillColor = [[UIColor clearColor] CGColor];
-    self.shape2Layer.strokeColor = [color2 CGColor];
+    self.shape2Layer.strokeEnd = 0;
+    self.shape2Layer.path = [self getLipsHeadVector].CGPath;
+    self.shape2Layer.fillColor = UIColor.clearColor.CGColor;
+    self.shape2Layer.strokeColor = colors[1].CGColor;
     self.shape2Layer.lineWidth = 1.0;
     self.shape2Layer.position = CGPointMake(118, 81);
     
-    self.shape3Layer.path = [[self getHeadNeckVector] CGPath];
-    self.shape3Layer.fillColor = [[UIColor clearColor] CGColor];
-    self.shape3Layer.strokeColor = [color3 CGColor];
+    self.shape3Layer.strokeEnd = 0;
+    self.shape3Layer.path = [self getHeadNeckVector].CGPath;
+    self.shape3Layer.fillColor = UIColor.clearColor.CGColor;
+    self.shape3Layer.strokeColor = colors[2].CGColor;
     self.shape3Layer.lineWidth = 1.0;
     self.shape3Layer.position = CGPointMake(63.5, 102.5);
+
+    [self.layer addSublayer:self.shape1Layer];
+    [self.layer addSublayer:self.shape2Layer];
+    [self.layer addSublayer:self.shape3Layer];
 }
 
 

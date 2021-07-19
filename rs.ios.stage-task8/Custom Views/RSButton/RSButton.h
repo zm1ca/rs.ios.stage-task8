@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setPickedTint;
 - (void)setDefaultTint;
-- (void)setDisabled;
+- (void)setDisabledTint;
 
 @end
 
