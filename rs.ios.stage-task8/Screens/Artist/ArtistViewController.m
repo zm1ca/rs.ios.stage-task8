@@ -93,6 +93,9 @@
     NSArray<UIColor *>* colors = [self generateColorsForLines];
     NSLog(@"%@", colors);
     [_canvas drawHeadWithColor1:colors[0] color2:colors[1] color3:colors[2]];
+    _canvas.shape1Layer.strokeEnd = 0.7;
+    _canvas.shape2Layer.strokeEnd = 0.7;
+    _canvas.shape3Layer.strokeEnd = 0.7;
 }
 
 - (NSMutableArray<UIColor *>*)generateColorsForLines {
